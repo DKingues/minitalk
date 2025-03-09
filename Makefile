@@ -1,0 +1,100 @@
+# **************************************************************************** #
+#                                                                              #
+#                                                         :::      ::::::::    #
+#    Makefile                                           :+:      :+:    :+:    #
+#                                                     +:+ +:+         +:+      #
+#    By: vboxuser <vboxuser@student.42.fr>          +#+  +:+       +#+         #
+#                                                 +#+#+#+#+#+   +#+            #
+#    Created: 2025/03/05 16:08:11 by vboxuser          #+#    #+#              #
+#    Updated: 2025/03/08 09:44:19 by vboxuser         ###   ########.fr        #
+#                                                                              #
+# **************************************************************************** #
+
+# Files
+
+SERVER = ft_server/server.c
+
+CLIENT = ft_client/client.c
+
+LIBFT = cd libft && make
+
+LIB = libft/libft.a
+
+PRINTF = cd ft_printf && make
+
+PRTF = ft_printf/libftprintf.a
+
+OBJS = $(CLIENT_OBJ) \ $(SERVER_OBJS)
+
+# Sources and objects
+
+SERVER_SRC = $(SERVER)
+
+SERVER_OBJS = $(SERVER_SRC:.c=.o)
+
+CLIENT_SRC = $(CLIENT)
+
+CLIENT_OBJ = $(CLIENT_SRC:.c=.o)
+
+# Compiler
+
+CC = cc
+
+FLAGS = -Wall -Wextra -Werror
+
+SERVER_NAME = server
+
+CLIENT_NAME = client
+
+NAME = server
+
+# Messages
+
+COMP_START = echo "\nCompilation starting...\n"
+
+SERVER_READY = echo "\nThe server is ready.\n"
+
+CLIENT_READY = echo "\nThe client is ready.\n"
+
+CLEAN_DONE = echo "\nRemoved all the object files.\n"
+
+FCLEAN_DONE = echo "\nRemoved all objects and executables.\n"
+
+# Rules
+
+all: $(NAME)
+
+$(NAME): comp_start ft_server ft_client
+
+comp_start:
+	$(COMP_START)
+	$(LIBFT)
+	$(PRINTF)
+	
+ft_server: $(SERVER_OBJS)
+	$(CC) $(CFLAGS) $(SERVER_OBJS) $(LIB) $(PRTF) -o $(SERVER_NAME)
+	$(SERVER_READY)
+
+ft_client: $(CLIENT_OBJ)
+	$(CC) $(CFLAGS) $(CLIENT_OBJ) $(LIB) $(PRTF) -o $(CLIENT_NAME)
+	$(CLIENT_READY)
+
+clean:
+	rm -rf $(OBJS)
+	cd libft && make clean
+	cd ft_printf && make clean
+	$(CLEAN_DONE)
+
+fclean: clean
+	rm -rf $(SERVER_NAME) $(CLIENT_NAME)
+	cd libft && make fclean
+	cd ft_printf && make fclean
+	$(FCLEAN_DONE)
+
+re: fclean all
+
+.PHONY all minitalk server client clean fclean re libft
+
+
+
+
