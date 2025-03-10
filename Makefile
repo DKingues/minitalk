@@ -6,7 +6,7 @@
 #    By: dicosta- <dicosta-@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/03/05 16:08:11 by vboxuser          #+#    #+#              #
-#    Updated: 2025/03/10 16:44:29 by dicosta-         ###   ########.fr        #
+#    Updated: 2025/03/10 19:33:37 by dicosta-         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -24,17 +24,18 @@ PRINTF = cd ft_printf && make
 
 PRTF = ft_printf/libftprintf.a
 
-OBJS = $(CLIENT_OBJ) \ $(SERVER_OBJS)
-
 # Sources and objects
 
 SERVER_SRC = $(SERVER)
 
-SERVER_OBJS = $(SERVER_SRC:.c=.o)
+SERVER_OBJ = $(SERVER_SRC:.c=.o)
 
 CLIENT_SRC = $(CLIENT)
 
 CLIENT_OBJ = $(CLIENT_SRC:.c=.o)
+
+OBJS = $(CLIENT_OBJ) \
+	$(SERVER_OBJ)
 
 # Compiler
 
@@ -71,8 +72,8 @@ comp_start:
 	$(LIBFT)
 	$(PRINTF)
 	
-ft_server: $(SERVER_OBJS)
-	$(CC) $(CFLAGS) $(SERVER_OBJS) $(LIB) $(PRTF) -o $(SERVER_NAME)
+ft_server: $(SERVER_OBJ)
+	$(CC) $(CFLAGS) $(SERVER_OBJ) $(LIB) $(PRTF) -o $(SERVER_NAME)
 	$(SERVER_READY)
 
 ft_client: $(CLIENT_OBJ)

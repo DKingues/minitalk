@@ -6,7 +6,7 @@
 /*   By: dicosta- <dicosta-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/05 16:08:17 by vboxuser          #+#    #+#             */
-/*   Updated: 2025/03/10 16:43:48 by dicosta-         ###   ########.fr       */
+/*   Updated: 2025/03/10 19:26:03 by dicosta-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,11 +16,11 @@ int	main(void)
 {
 	__pid_t	pid;
 
-	pid = get_pid();
+	pid = getpid();
 
 	ft_printf("SERVER PID: %d\n", pid);
-	while (1337)
-	{
-		pause();
-	}
+	// while (1337)
+	// {
+	// 	pause();
+	// }
 }
