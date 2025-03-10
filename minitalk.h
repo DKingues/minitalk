@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   minitalk.h                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: vboxuser <vboxuser@student.42.fr>          +#+  +:+       +#+        */
+/*   By: dicosta- <dicosta-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/05 16:06:09 by vboxuser          #+#    #+#             */
-/*   Updated: 2025/03/06 10:56:53 by vboxuser         ###   ########.fr       */
+/*   Updated: 2025/03/10 16:54:05 by dicosta-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,5 +17,7 @@
 #include <stdlib.h>
 #include <signal.h>
 #include <stdio.h>
+#include "libft/libft.h"
+#include "ft_printf/libftprintf.h"
 
 #endif

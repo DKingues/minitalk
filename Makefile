@@ -3,10 +3,10 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: vboxuser <vboxuser@student.42.fr>          +#+  +:+       +#+         #
+#    By: dicosta- <dicosta-@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/03/05 16:08:11 by vboxuser          #+#    #+#              #
-#    Updated: 2025/03/08 09:44:19 by vboxuser         ###   ########.fr        #
+#    Updated: 2025/03/10 16:44:29 by dicosta-         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -93,7 +93,7 @@ fclean: clean
 
 re: fclean all
 
-.PHONY all minitalk server client clean fclean re libft
+.PHONY: all minitalk server client clean fclean re libft
 
 
 
