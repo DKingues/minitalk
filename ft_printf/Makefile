@@ -6,7 +6,7 @@
 #    By: dicosta- <dicosta-@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/11/17 16:29:45 by dicosta-          #+#    #+#              #
-#    Updated: 2024/11/20 16:59:00 by dicosta-         ###   ########.fr        #
+#    Updated: 2025/04/14 14:55:42 by dicosta-         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -23,15 +23,15 @@ OBJ = $(SRC:.c=.o)
 
 all: $(NAME)
 $(NAME): $(OBJ)
-	ar rcs $(NAME) $(OBJ)
+	@ar rcs $(NAME) $(OBJ)
 
 clean:
 
-	rm -f $(OBJ)
+	@rm -f $(OBJ)
 
 fclean: clean
 
-	rm -f $(NAME)
+	@rm -f $(NAME)
 
 re: fclean $(NAME)
 

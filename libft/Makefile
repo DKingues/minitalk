@@ -6,7 +6,7 @@
 #    By: dicosta- <dicosta-@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/11/01 17:48:36 by dicosta-          #+#    #+#              #
-#    Updated: 2024/11/21 14:43:55 by dicosta-         ###   ########.fr        #
+#    Updated: 2025/04/14 14:55:06 by dicosta-         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -29,20 +29,20 @@ NAME = libft.a
 
 all: $(NAME)
 $(NAME): $(OBJ)
-	ar rcs $(NAME) $(OBJ)
+	@ar rcs $(NAME) $(OBJ)
 
 clean:
-	rm -f $(OBJ) $(BOBJ)
+	@rm -f $(OBJ) $(BOBJ)
 	@touch bonus
 	@rm bonus
 
 fclean: clean
-	rm -f $(NAME) 
+	@rm -f $(NAME) 
 
 re: fclean all
 
 bonus: $(BOBJ) $(OBJ)
-	ar rcs $(NAME) $(OBJ) $(BOBJ)
+	@ar rcs $(NAME) $(OBJ) $(BOBJ)
 	@touch bonus
 
 .PHONY : all clean fclean re

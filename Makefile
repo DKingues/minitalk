@@ -6,15 +6,15 @@
 #    By: dicosta- <dicosta-@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/03/05 16:08:11 by vboxuser          #+#    #+#              #
-#    Updated: 2025/03/10 19:33:37 by dicosta-         ###   ########.fr        #
+#    Updated: 2025/04/14 18:00:57 by dicosta-         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 # Files
 
-SERVER = ft_server/server.c
+SERVER = server.c
 
-CLIENT = ft_client/client.c
+CLIENT = client.c
 
 LIBFT = cd libft && make
 
@@ -28,12 +28,18 @@ PRTF = ft_printf/libftprintf.a
 
 SERVER_SRC = $(SERVER)
 
-SERVER_OBJ = $(SERVER_SRC:.c=.o)
-
 CLIENT_SRC = $(CLIENT)
 
+SERVER_OBJ = $(SERVER_SRC:.c=.o)
+
+%.o : %.c
+	$(CC) $(FLAGS) -c -o $@ $<
+	
 CLIENT_OBJ = $(CLIENT_SRC:.c=.o)
 
+%.o : %.c
+	$(CC) $(FLAGS) -c -o $@ $<
+	
 OBJS = $(CLIENT_OBJ) \
 	$(SERVER_OBJ)
 
@@ -68,28 +74,28 @@ all: $(NAME)
 $(NAME): comp_start ft_server ft_client
 
 comp_start:
-	$(COMP_START)
-	$(LIBFT)
-	$(PRINTF)
+	@$(COMP_START)
+	@$(LIBFT)
+	@$(PRINTF)
 	
 ft_server: $(SERVER_OBJ)
-	$(CC) $(CFLAGS) $(SERVER_OBJ) $(LIB) $(PRTF) -o $(SERVER_NAME)
+	@$(CC) $(CFLAGS) $(SERVER_OBJ) $(LIB) $(PRTF) -o $(SERVER_NAME)
 	$(SERVER_READY)
 
 ft_client: $(CLIENT_OBJ)
-	$(CC) $(CFLAGS) $(CLIENT_OBJ) $(LIB) $(PRTF) -o $(CLIENT_NAME)
+	@$(CC) $(CFLAGS) $(CLIENT_OBJ) $(LIB) $(PRTF) -o $(CLIENT_NAME)
 	$(CLIENT_READY)
 
 clean:
-	rm -rf $(OBJS)
-	cd libft && make clean
-	cd ft_printf && make clean
+	@rm -rf $(OBJS)
+	@cd libft && make clean
+	@cd ft_printf && make clean
 	$(CLEAN_DONE)
 
 fclean: clean
-	rm -rf $(SERVER_NAME) $(CLIENT_NAME)
-	cd libft && make fclean
-	cd ft_printf && make fclean
+	@rm -rf $(SERVER_NAME) $(CLIENT_NAME)
+	@cd libft && make fclean
+	@cd ft_printf && make fclean
 	$(FCLEAN_DONE)
 
 re: fclean all
