@@ -6,15 +6,15 @@
 #    By: dicosta- <dicosta-@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/03/05 16:08:11 by vboxuser          #+#    #+#              #
-#    Updated: 2025/04/14 18:00:57 by dicosta-         ###   ########.fr        #
+#    Updated: 2025/04/15 20:12:42 by dicosta-         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 # Files
 
-SERVER = server.c
+SERVER = srcs/server.c
 
-CLIENT = client.c
+CLIENT = srcs/client.c
 
 LIBFT = cd libft && make
 
