@@ -1,28 +1,33 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_print_ptr.c                                     :+:      :+:    :+:   */
+/*   ft_print_unsigned.c                                :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: dicosta- <dicosta-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/11/19 18:27:33 by dicosta-          #+#    #+#             */
-/*   Updated: 2024/11/21 16:50:07 by dicosta-         ###   ########.fr       */
+/*   Created: 2024/11/21 15:33:38 by dicosta-          #+#    #+#             */
+/*   Updated: 2024/11/21 16:53:34 by dicosta-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-int	ft_print_ptr(unsigned long long nbr)
+int	ft_print_unsigned(unsigned int d)
 {
-	int	counter;
+	int		counter;
+	long	bd;
 
+	bd = d;
 	counter = 0;
-	if (nbr == 0)
-		counter += write(1, "(nil)", 5);
+	if (bd > 9)
+	{
+		counter += ft_print_unsigned(bd / 10);
+		counter += ft_print_unsigned(bd % 10);
+	}
 	else
 	{
-		counter += write(1, "0x", 2);
-		counter += ft_print_hex(nbr, LC_HEX);
+		bd = bd + '0';
+		counter += write(1, &bd, 1);
 	}
 	return (counter);
 }
